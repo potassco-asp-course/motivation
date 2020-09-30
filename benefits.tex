@@ -1,0 +1,71 @@
+% ----------------------------------------------------------------------
+\begin{frame}[c]{\only<1-5>{Traditional}\only<6->{Knowledge-driven} Software}
+  \pause\thicklines
+  \begin{center}%
+    \thicklines%
+    \setlength{\unitlength}{.8pt}%
+    {\begin{picture}(360,230)(-70,-50)
+      \put(40,150){\circle{40}}\put(40,150){\makebox(0,0){User}}
+      \put(  0,0){\framebox(80,120)[c]{%
+          \only<-4,6-7,11->{Program}%
+          \only<5-5,8-10>{\alert{\textbf{How?}}}%
+        }}
+      \put(-20,-48){\framebox(260,40)[c]{%
+          \only<-9,11->{Computer}%
+          \only<10>{\alert{\textbf{How!}}}%
+        }}
+      \pause
+      \put(103,120){\vector(0,-1){120}}
+      \put(108, 60){\rotatebox[]{270}{\alert<3>{\textbf{Problem Solving}}}}
+      \only<4-5,11->{\put(-10, 61){\makebox(0,0)[r]{\alert{\textbf{Programmer}}}}}
+      \pause[7]
+      \put(180,150){\circle{40}}\put(180,150){\makebox(0,0){User}}
+      \put(140,92){\framebox(80,28)[c]{%
+          \only<-8,11->{Knowledge}%
+          \only<9-10>{\alert{\textbf{What?}}}%
+        }}
+      \put(140,0){\framebox(80,88)[c]{%
+          \only<-8,11->{Solver}%
+          \only<9-10>{\alert{\textbf{How!}}}%
+        }}
+      \only<11->{\put(230,106){\makebox(0,0)[l]{\alert{\textbf{Expert}}}}}
+    \end{picture}}
+  \end{center}
+\end{frame}
+%----------------------------------------------------------------------
+\begin{frame}[c]{What is the benefit?}
+  \thicklines\bigskip
+  \begin{center}%
+    \setlength{\unitlength}{1.1pt}%
+    {\begin{picture}(300,120)(-40,0)
+      \put(120,92){\framebox(80,28){\alert<2-5>{\alt<4-5>{\textbf{\shortstack{Natural\\ Language}}}{\textbf{Knowledge}}}}}
+      \put(120, 0){\framebox(80,88){\alert<6>{\textbf{Solver}}}}
+      \pause[2]
+      \put(210,106){\makebox(0,0)[l]{\alert<2-5>{\alt<5>{\textbf{Layperson}}{\textbf{Expert}}}}}
+      %
+      \pause[3]
+      \put(-10,0){\makebox(80,120)[tl]{%
+          \begin{tabular}{c@{\,}@{\,}l}
+            \raisebox{1pt}{\textbf{+}} & \alert<3-5>{Transparency}   \\
+            \raisebox{1pt}{\textbf{+}} & \alert<3-5>{Flexibility}    \\
+            \raisebox{1pt}{\textbf{+}} & \alert<3-5>{Maintainability}\\
+            \raisebox{1pt}{\textbf{+}} & \alert<3-5>{Reliability}    \\[20pt]\pause
+          \end{tabular}}}
+      \pause[7]
+      \put(-10,-70){\makebox(80,120)[tl]{%
+          \begin{tabular}{c@{\,}@{\,}l}
+            \raisebox{1pt}{\textbf{+}} & \alert<7>{Generality}     \\
+            \raisebox{1pt}{\textbf{+}} & \alert<7>{Efficiency}     \\
+            \raisebox{1pt}{\textbf{+}} & \alert<7>{Optimality}     \\
+            \raisebox{1pt}{\textbf{+}} & \alert<7>{Availability}
+          \end{tabular}}}
+    \end{picture}}
+  \end{center}
+  \pause\
+\end{frame}
+% ----------------------------------------------------------------------
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../asp"
+%%% End:
