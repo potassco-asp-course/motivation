@@ -1,0 +1,71 @@
+\begin{frame}[c]{ASP modeling, grounding, and solving}
+  \begin{center}
+    \small
+    \setlength{\unitlength}{.75pt}
+    \begin{picture}(420,200)(-210,-35)
+      \put(-200,110){\framebox(80,40){Problem}}
+      \put(-200,-20){\framebox(80,40){\shortstack{Logic\\Program}}}
+      \put(-80,-15){\framebox(60,30){Grounder}}
+      \put(  20,-15){\framebox(60,30){Solver}}
+      \put( 120,-20){\framebox(80,40){\shortstack{Stable\\Models}}}
+      \put( 120,110){\framebox(80,40){Solution}}
+      \put(-120,0){\vector(1,0){40}}
+      \put( -20,0){\vector(1,0){40}}
+      \put(  80,0){\vector(1,0){40}}
+      \put(-160,110){\vector(0,-1){90}}
+      \put( 160, 20){\vector(0, 1){90}}
+      \put(-217, 62.5){\emph{Modeling}}
+      \put( 165, 62.5){\emph{Interpreting}}
+      \put(   0,-32.5){\makebox(0,0){\emph{Solving}}}
+    \end{picture}
+  \end{center}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[c]{SAT solving}
+  \begin{center}
+    \small
+    \setlength{\unitlength}{.75pt}
+    \begin{picture}(420,200)(-210,-35)
+      \put(-200,110){\framebox(80,40){Problem}}
+      \put(-200,-20){\framebox(80,40){\shortstack{Formula\\(CNF)}}}
+      \put(  20,-15){\framebox(60,30){Solver}}
+      \put( 120,-20){\framebox(80,40){\shortstack{Classical\\Models}}}
+      \put( 120,110){\framebox(80,40){Solution}}
+      \put(-120,0){\vector(1,0){140}}
+      \put(  80,0){\vector(1,0){40}}
+      \put(-160,110){\vector(0,-1){90}}
+      \put( 160, 20){\vector(0, 1){90}}
+      \put(-240, 62.5){\emph{Programming}}
+      \put( 165, 62.5){\emph{Interpreting}}
+      \put(   0,-32.5){\makebox(0,0){\emph{Solving}}}
+    \end{picture}
+  \end{center}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[c]{Rooting ASP solving}
+  \begin{center}
+    \small
+    \setlength{\unitlength}{.75pt}
+    \begin{picture}(420,200)(-210,-35)
+      \put(-200,110){\framebox(80,40){Problem}}
+      \put(-200,-20){\framebox(80,40){\shortstack{Logic\\Program}}}\put(-160,-30){\makebox(0,0){\bf\only<2->{\alert{LP}}}}
+      \put(-80,-15){\framebox(60,30){Grounder}}\put(-50,-30){\makebox(0,0){\bf\only<2->{\alert{DB}}}}
+      \put(  20,-15){\framebox(60,30){Solver}}\put(50,-30){\makebox(0,0){\bf\only<2->{\alert{SAT}}}}
+      \put( 120,-20){\framebox(80,40){\shortstack{Stable\\Models}}}\put(160,-30){\makebox(0,0){\bf\only<2->{\alert{DB+KR+LP}}}}
+      \put( 120,110){\framebox(80,40){Solution}}
+      \put(-120,0){\vector(1,0){40}}
+      \put( -20,0){\vector(1,0){40}}
+      \put(  80,0){\vector(1,0){40}}
+      \put(-160,110){\vector(0,-1){90}}
+      \put( 160, 20){\vector(0, 1){90}}
+      \put(-217, 62.5){\emph{Modeling}}\put(-155, 62.5){\bf\only<2->{\alert{KR}}}
+      \put( 165, 62.5){\emph{Interpreting}}
+      \put(   0,-32.5){\makebox(0,0){\emph{Solving}}}
+    \end{picture}
+  \end{center}
+\end{frame}
+%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "asp"
+%%% End:

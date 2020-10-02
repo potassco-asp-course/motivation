@@ -1,0 +1,301 @@
+% ----------------------------------------------------------------------
+\begin{frame}{Paradigm shift}
+  \bigskip
+
+  \begin{description}
+
+  \item<2->[Theorem Proving based approach] (eg.\ Prolog)
+    \begin{enumerate}
+    \item Provide a representation of the problem
+
+    \item A solution is given by a \alert{derivation} of a query
+    \end{enumerate}
+    \bigskip
+
+  \item<3->[Model Generation based approach] (eg.\ SATisfiability testing)
+    \begin{enumerate}
+    \item Provide a representation of the problem
+
+    \item A solution is given by a \alert{model} of the representation
+    \end{enumerate}
+  \end{description}
+  \bigskip
+  \begin{block}<4>{Automated planning, Kautz and Selman (ECAI'92)}
+      Represent planning problems as propositional theories
+      so that\\ models not proofs describe solutions
+  \end{block}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}{Model Generation based Problem Solving}
+  \begin{center}\small
+    \begin{tabular}{l|lc}
+      Representation & Solution\\\cline{1-2}
+      \alert<2-3>{constraint satisfaction problem} & \alert<2-3>{assignment}      \\[1pt]
+      propositional horn theories     & smallest model  \\[1pt]
+      \alert<3>{propositional theories}          & \alert<3>{models} &\visible<3>{\bf\alert{SAT}}         \\
+      propositional theories          & minimal models  \\
+      propositional theories          & stable models   \\[1pt]
+      propositional programs          & minimal models  \\
+      propositional programs          & supported models\\
+      propositional programs          & stable models   \\[1pt]
+      first-order theories            & models          \\
+      first-order theories            & minimal models  \\
+      first-order theories            & stable models   \\
+      first-order theories            & Herbrand models \\[1pt]
+      auto-epistemic theories         & expansions      \\
+      default theories                & extensions      \\
+      \multicolumn{1}{c|}{\vdots}     & \multicolumn{1}{c}{\vdots}
+    \end{tabular}
+  \end{center}
+\end{frame}
+%-------------------------------------------------------------
+\begin{frame}{Paradigm shift}
+  \bigskip
+
+  \begin{description}
+
+  \item<1-2>[Theorem Proving based approach] (eg.\ Prolog)
+    \begin{enumerate}
+    \item Provide a representation of the problem
+
+    \item A solution is given by a \alert{derivation} of a query
+    \end{enumerate}
+    \bigskip
+
+  \item<1>[Model Generation based approach] (eg.\ SATisfiability testing)
+    \begin{enumerate}
+    \item Provide a representation of the problem
+
+    \item A solution is given by a \alert{model} of the representation
+    \end{enumerate}
+  \end{description}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[fragile]{LP-style playing with blocks}
+  \begin{block}<1->{Prolog program}%
+    \small\vspace{-2ex}%
+\begin{semiverbatim}
+on(a,b).
+on(b,c).
+
+above(X,Y) :- on(X,Y).
+above(X,Y) :- on(X,Z), above(Z,Y).
+\end{semiverbatim}%
+    \vspace{-1ex}%
+  \end{block}
+  \begin{block}<2->{Prolog queries\only<4>{ \ (testing entailment)}\phantom{)}}%
+    \small\vspace{-2ex}%
+\begin{semiverbatim}
+?- above(a,c).
+true.
+\pause[3]
+?- above(c,a).
+no.
+\end{semiverbatim}
+    \vspace{-1ex}%
+  \end{block}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[fragile]{LP-style playing with blocks}
+  \begin{block}<1->{Shuffled Prolog program}%
+    \small\vspace{-2ex}%
+\begin{semiverbatim}
+on(a,b).
+on(b,c).
+
+above(X,Y) :- above(X,Z), on(Z,Y).
+above(X,Y) :- on(X,Y).
+\end{semiverbatim}
+    \vspace{-1ex}%
+  \end{block}
+  \begin{block}<2->{Prolog queries\only<3>{ \ (answered via fixed execution)}\phantom{)}}%
+    \small\vspace{-2ex}%
+\begin{semiverbatim}
+?- above(a,c).
+\pause[3]
+Fatal Error: local stack overflow.
+\end{semiverbatim}
+    \vspace{-1ex}%
+  \end{block}
+\end{frame}
+%-------------------------------------------------------------
+\begin{frame}{Paradigm shift}
+  \bigskip
+
+  \begin{description}
+
+  \item<1>[Theorem Proving based approach] (eg.\ Prolog)
+    \begin{enumerate}
+    \item Provide a representation of the problem
+
+    \item A solution is given by a \alert{derivation} of a query
+    \end{enumerate}
+    \bigskip
+
+  \item<1-2>[Model Generation based approach] (eg.\ SATisfiability testing)
+    \begin{enumerate}
+    \item Provide a representation of the problem
+
+    \item A solution is given by a \alert{model} of the representation
+    \end{enumerate}
+  \end{description}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[fragile]{SAT-style playing with blocks}
+  \begin{block}<1->{Formula}
+    \small
+    \medskip
+    \(
+    \begin{array}{rl}
+           & \ on(a,b)
+    \\
+    \wedge & \ on(b,c)
+    \\
+    \wedge & \left( on(X,Y) \to above(X,Y)\right) \\
+    \wedge & \left( on(X,Z) \wedge above(Z,Y) \to above(X,Y)\right)
+    \end{array}
+    \)
+    \medskip
+  \end{block}
+  \begin{block}<2->{Herbrand model\only<5->{ (among 426!)}\phantom{g!)}}
+    \small
+    \medskip
+    \(\
+    \left\{
+    \begin{array}{rrrrrr}
+            \alert<3>{on(a,b)},&    \alert<3>{on(b,c)},&    \alert<4>{on(a,c)},&    \alert<4>{on(b,b)},&
+      \\ \alert<3>{above(a,b)},& \alert<3>{above(b,c)},& \alert<3>{above(a,c)},& \alert<4>{above(b,b)},& \alert<4>{above(c,b)}
+    \end{array}
+    \right\}
+    \)
+    \medskip
+\end{block}
+\end{frame}
+%-------------------------------------------------------------
+% \section{Roots}
+%-------------------------------------------------------------
+\begin{frame}{Paradigm shift}
+  \bigskip
+
+  \begin{description}
+
+  \item<1>[Theorem Proving based approach] (eg.\ Prolog)
+    \begin{enumerate}
+    \item Provide a representation of the problem
+
+    \item A solution is given by a \alert{derivation} of a query
+    \end{enumerate}
+    \bigskip
+
+  \item[Model Generation based approach] (eg.\ SATisfiability testing)
+    \begin{enumerate}
+    \item Provide a representation of the problem
+
+    \item A solution is given by a \alert{model} of the representation
+      \bigskip
+    \item []\onslide*<2>{\Large\itarrow \ \alert{Answer Set Programming (ASP)}}
+    \end{enumerate}
+  \end{description}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}{\only<1>{Model Generation based Problem Solving}%
+              \only<2>{Answer Set Programming \emph{at large}}%
+              \only<3>{Answer Set Programming \emph{commonly}}%
+              \only<4->{Answer Set Programming \emph{in practice}}}
+  \begin{center}\small
+    \begin{tabular}{l|l}
+      Representation & Solution\\\hline
+      \onslide<1>  {constraint satisfaction problem} & \onslide<1>  {assignment      } \\[1pt]
+      \onslide<1-2>{propositional horn theories    } & \onslide<1-2>{smallest model  } \\[1pt]
+      \onslide<1-2>{propositional theories         } & \onslide<1-2>{models          } \\
+      \onslide<1-2>{propositional theories         } & \onslide<1-2>{minimal models  } \\
+      \onslide<1-3>{propositional theories         } & \onslide<1-3>{\alert<3>{stable} models   } \\[1pt]
+      \onslide<1-2>{propositional programs         } & \onslide<1-2>{minimal models  } \\
+      \onslide<1-2>{propositional programs         } & \onslide<1-2>{supported models} \\
+      \onslide<1-5>{propositional programs         } & \onslide<1-5>{\alert<3>{stable} models   } \\[1pt]
+      \onslide<1-2>{first-order theories           } & \onslide<1-2>{models          } \\
+      \onslide<1-2>{first-order theories           } & \onslide<1-2>{minimal models  } \\
+      \onslide<1-3>{first-order theories           } & \onslide<1-3>{\alert<3>{stable} models   } \\
+      \onslide<1-2>{first-order theories           } & \onslide<1-2>{Herbrand models \phantom{stable}} \\[1pt]
+      \onslide<1-2>{auto-epistemic theories        } & \onslide<1-2>{expansions      } \\
+      \onslide<1-2>{default theories               } & \onslide<1-2>{extensions      } \\
+      \onslide*<1-4>{\qquad\qquad\vdots}%
+      \onslide*<5>{first-order programs}\phantom{\vdots}
+                                                     & \onslide*<1-4>{\quad\quad\vdots}%
+                                                       \onslide*<5>{stable Herbrand models}
+    \end{tabular}
+  \end{center}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[fragile]{ASP-style playing with blocks}
+  \begin{block}<only@1-3>{Logic program}%
+    \small\vspace{-2ex}%
+\begin{semiverbatim}
+on(a,b).
+on(b,c).
+
+above(X,Y) :- on(X,Y).
+above(X,Y) :- on(X,Z), above(Z,Y).
+\end{semiverbatim}
+  \end{block}
+  \begin{block}<only@4->{Logic program}%
+    \small\vspace{-2ex}%
+\begin{semiverbatim}
+on(a,b).
+on(b,c).
+
+above(X,Y) :- above(Z,Y), on(X,Z).
+above(X,Y) :- on(X,Y).
+\end{semiverbatim}
+  \end{block}
+  \begin{block}<2->{Stable Herbrand model\only<3->{ (and no others)}\phantom{)}}
+    \medskip
+      \(\
+      \{\ \mathtt{on(a,b),\; on(b,c),\; above(b,c),\; above(a,b),\; above(a,c)}\ \}
+      \)
+    \bigskip
+  \end{block}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[c]{ASP versus LP}
+  \begin{center}\renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lc|cr}
+      \alert{ASP}                           &&& \alert{Prolog}\\
+      \hline\hline
+      Model generation                      &&&    Query orientation\\\hline
+      Bottom-up                             &&&             Top-down\\\hline
+      Modeling language                     &&& Programming language\\\hline
+      \multicolumn{4}{c}{Rule-based format}\\
+      \hspace*{12pt} Instantiation          &&&     Unification \hspace*{12pt} \\[-3pt]
+      \hspace*{12pt} Flat terms             &&&    Nested terms \hspace*{12pt} \\\hline
+      {\footnotesize (Turing +)} $NP(^{NP})$&&& Turing
+    \end{tabular}
+  \end{center}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[c]{ASP versus SAT}
+  \begin{center}\renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{lc|cr}
+      \alert{ASP}                           &&& \alert{SAT}\\
+      \hline\hline
+      \multicolumn{4}{c}{Model generation}\\\hline
+      \multicolumn{4}{c}{Bottom-up}\\\hline
+      Constructive Logic                    &&& Classical Logic\\\hline
+      Closed (and open)                     &&& Open world reasoning\\[-5pt]
+      \qquad world reasoning                &&& \\\hline
+      Modeling language                     &&&             ---\\\hline
+      Complex reasoning modes               &&& Satisfiability testing\\
+      \hspace*{12pt}Satisfiability          &&& Satisfiability\hspace*{12pt}\\[-3pt]
+      \hspace*{12pt}Enumeration/Projection  &&& ---\hspace*{12pt}\\[-3pt]
+      \hspace*{12pt}Intersection/Union      &&& ---\hspace*{12pt}\\[-3pt]
+      \hspace*{12pt}Optimization            &&& ---\hspace*{12pt}\\\hline
+      {\footnotesize (Turing +)} $NP(^{NP})$&&& $NP$
+    \end{tabular}
+  \end{center}
+\end{frame}
+% ----------------------------------------------------------------------
+%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../asp"
+%%% End:

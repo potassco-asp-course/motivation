@@ -1,0 +1,23 @@
+\begin{frame}{Two\only<5>{ and a half} sides of a coin}
+  \bigskip
+  \begin{itemize}
+  \item \structure{ASP as \textcolor<2-3>{green}{High-level Language}}
+    \begin{itemize}
+    \item Express problem instance as sets of facts
+    \item Encode  problem class as a set of rules
+    \item Read off solutions from stable models of facts and rules
+    \end{itemize}
+    \bigskip
+  \item \structure{ASP as \textcolor<2-3>{red}{\only<4->{``}Low-level\only<4->{''} Language}}
+    \begin{itemize}
+    \item \textcolor<3>{red}{Compile} a problem \only<4->{instance} into a set of facts\only<-3>{ and rules}
+    \item<only@4-> Encode  problem class as a set of rules
+    \item Solve the original problem by solving its compilation
+    \end{itemize}
+    \bigskip
+  \item<5> \structure{ASP and Imperative language}
+    \begin{itemize}
+    \item<5> Control continuously changing logic programs
+    \end{itemize}
+  \end{itemize}
+\end{frame}

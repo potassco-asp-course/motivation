@@ -1,0 +1,18 @@
+\begin{frame}{Logic \alert<1>{Programs}}
+  \begin{itemize}
+  \item<2->
+    A \alert{logic program}~$P$ is a \alert{set of rules} of the form
+    \[\large
+    \underbrace{a\raisebox{-4pt}{}}_{\text{\alert{head}}}\leftarrow\underbrace{\raisebox{-4pt}{\ }b_1,\dots,b_m,\naf{c_1},\dots,\naf{c_n}\raisebox{-4pt}{\ }}_{\alert{\text{body}}}
+    \]
+    \begin{itemize}
+    \item $a$ and all $b_i,c_j$ are \alert{atoms} (propositional variables)
+    \item \alert{$\leftarrow$}, \alert{$,$}, \alert{$\sim$} denote \alert{if}, \alert{and}, and \alert{negation}
+    \item intuitive reading: \alert{head} must be true \alert{if body} holds
+    \end{itemize}
+    \medskip
+  \item<3->
+    Semantics given by \alert{stable models}, informally,\\
+    models of $P$ justifying each true atom by some rule in $P$
+  \end{itemize}
+\end{frame}
