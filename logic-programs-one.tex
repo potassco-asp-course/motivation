@@ -1,18 +1,32 @@
-\begin{frame}{Logic \alert<1>{Programs}}
+% ----------------------------------------------------------------------
+\begin{frame}{Logic programs}
+  \medskip
   \begin{itemize}
   \item<2->
-    A \alert{logic program}~$P$ is a \alert{set of rules} of the form
-    \[\large
-    \underbrace{a\raisebox{-4pt}{}}_{\text{\alert{head}}}\leftarrow\underbrace{\raisebox{-4pt}{\ }b_1,\dots,b_m,\naf{c_1},\dots,\naf{c_n}\raisebox{-4pt}{\ }}_{\alert{\text{body}}}
-    \]
-    \begin{itemize}
+    A \alert{logic program} is a \alert{set of rules} of the form
+    \begin{align*}\large
+      \underbrace{a\raisebox{-6pt}{}}_{\text{\alert{\normalsize head}}}
+      \leftarrow
+      \underbrace{\raisebox{-6pt}{\ }b_1,\dots,b_m,\neg c_1,\dots,\neg c_n\raisebox{-6pt}{\ }}_{\alert{\text{\normalsize body}}}
+    \end{align*}
+  \item<2-> [] where
+    \begin{itemize}\normalsize
     \item $a$ and all $b_i,c_j$ are \alert{atoms} (propositional variables)
-    \item \alert{$\leftarrow$}, \alert{$,$}, \alert{$\sim$} denote \alert{if}, \alert{and}, and \alert{negation}
+    \item \alert{$\leftarrow$}, \alert{$,$}, \alert{$\neg$} denote \alert{if}, \alert{and}, and \alert{negation}
     \item intuitive reading: \alert{head} must be true \alert{if body} holds
     \end{itemize}
-    \medskip
+    \bigskip
   \item<3->
-    Semantics given by \alert{stable models}, informally,\\
-    models of $P$ justifying each true atom by some rule in $P$
+    Semantics given by \alert{stable models}, informally,
+    \begin{itemize}\normalsize
+    \item (classical) models of the logic program
+    \item requiring that each true atom is provable
+    \end{itemize}
   \end{itemize}
 \end{frame}
+% ----------------------------------------------------------------------
+%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:
