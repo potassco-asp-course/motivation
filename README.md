@@ -65,3 +65,10 @@ that are detailed in separate sections or repositories, respectively.
   - your way home and a flat tire
   - your position in a soccer game and a missing teammate
   - etc
+
+- Again, this is different from the "classical" approach, where conclusions never change their truth value
+  upon the arrival of new information,
+
+  simply because you cannot reason under assumptions in the first place
+
+- Well, that's enough hand-waving for now :)
