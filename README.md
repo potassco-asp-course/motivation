@@ -58,7 +58,7 @@ that are detailed in separate sections or repositories, respectively.
 
   In case you learn that it is true later on, and add it to your program, it changes it truth value from false to true
 
-  Just as many things in live that draw upon assumption
+  Just as many things in life that draw upon assumption
 
   Examples include:
   - birds fly and penguins
