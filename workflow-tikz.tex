@@ -1,0 +1,27 @@
+\begin{frame}[c]{Workflow}
+  \begin{center}
+  \begin{tikzpicture}[
+      x=.62pt,y=.75pt,
+      big box/.style={draw,minimum width=.7*80,minimum height=.7*40,inner sep=0},
+      small box/.style={draw,minimum width=.8*60,minimum height=.7*30,inner sep=0},
+      auto,
+    ]
+    \begin{scope}[every node/.style={big box}]
+      \node (a) at (-200, 60) {Problem};
+      \node (b) at (-200,-20) {\shortstack{Logic\\Program}};
+      \node (e) at ( 120,-20) {\shortstack{Stable\\Models}};
+      \node (f) at ( 120, 60) {Solution};
+    \end{scope}
+    \begin{scope}[every node/.style={small box}]
+      \node[fill=white!30!bg] (c) at (-88,-20) {\alert{Grounder}};
+      \node (d) at ( 12,-20) {Solver};
+    \end{scope}
+    \path[->]
+      (a) edge node [swap] {Modeling} (b)
+      (b) edge (c)
+      (c) edge node [swap,yshift=-20] {Grounding and Solving} (d)
+      (d) edge (e)
+      (e) edge node [swap] {Interpreting} (f);
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
