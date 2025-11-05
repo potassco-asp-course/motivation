@@ -1,0 +1,52 @@
+% ----------------------------------------------------------------------
+\begin{frame}{Answer Set Programming (ASP)}{A technology for knowledge-driven AI}
+  \begin{itemize}\itemsep 6pt
+  \item<2-> \structure{What is ASP good for?}
+
+    Solving knowledge-intense combinatorial (optimization) problems
+  \item<2-> \structure{What problems are this?}\only<4-5>{\structure{\alert{ --- \textbf{And industrial ones}\,?}}}
+
+    \only<2-4,10->{Problems consisting of (many) decisions and constraints}
+    \only<3-4>{\smallskip\par\structure{Examples} \
+    Sudoku,
+    Configuration,
+    Diagnosis,
+    Music composition,
+    Planning,
+    Scheduling,
+    System design,
+    Time tabling,
+    etc.}%
+    \only<5-9>{\smallskip%
+      \begin{itemize}
+      \item \alert<6>{\textbf<6>{Crewlinq}}: Nurse scheduling
+      \item \alert<6>{\textbf<6>{Debian, Ubuntu}}: Linux package configuration
+      \item Exeura: Call routing
+      \item \alert<7-8>{\textbf<7-8>{FCC}: Radio frequency auction}
+      \only<8>{\begin{picture}(0,0)
+        \put(0,5){\vector(1,1){10}}
+        \put(82,58){\makebox(0,0){\includegraphics[width=5cm]{fcc}}}
+      \end{picture}}
+      \item Gioia Tauro: Workforce management
+      \item \alert<6>{\textbf<6>{Krones}}: Machine configuration
+      \item LLNL: Package management in High-performance Computing
+      \item NASA: Decision support for Space Shuttle
+      \item \alert<6>{\textbf<6>{SBB}}: Train disposition
+      \item \alert<6>{\textbf<6>{Siemens}}: Product configuration
+      \item Variantum: Product configuration
+%       \item US Navy: risk assessment
+      \end{itemize}
+    }
+  \item<only@10-> \structure{What are ASP's distinguishing features?}
+    \begin{itemize}\normalsize
+    \item High level, versatile modeling language
+    \item High performance solvers
+    \item Qualitative and quantitative optimization
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "slides"
+%%% End:
